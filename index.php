@@ -1,0 +1,2 @@
+<!DOCTYPE html><head><meta http-equiv="refresh" content="1; url=https://cyber.rit.edu/SCRRPDT/welcome.php"><title>SCRRPDT</title></head><body>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="walking_tiger.gif"><br>Towards a more secure future...</body>
+</html>

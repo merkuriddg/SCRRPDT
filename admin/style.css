@@ -1,0 +1,278 @@
+body {
+    font-family: "Lato", sans-serif;
+    background-color: whitesmoke;
+    color: black;
+}
+a {
+    color:black;
+}
+.sidenav {
+    height: 100%;
+    width: 150px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    padding-top: 0px;
+}
+.sidenav a {
+    padding: 6px 6px 6px 20px;
+    text-decoration: none;
+    font-size: 12px;
+    color: #818181;
+    display: block;
+}
+.sidenav a:hover, .dropdown-btn:hover {
+    color: #f1f1f1;
+    background-color: black; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to left, #000 90%, #ccc); /* Standard syntax (must be last) */
+}
+.sidenav a:selected {
+    color: blue;
+    background-color: black; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to left, #000 90%, #ccc); /* Standard syntax (must be last) */
+}
+
+.dropdown-btn {
+    width:100%; 
+    font-size: 10px;
+    padding: 6px 6px 6px 20px;
+    color: #818181;
+    text-decoration: none;
+    text-align: left;
+    display: block;
+    background: none;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    text-decoration: none;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: black;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: black;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+    float: right;
+    padding-right:12px;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: whitesmoke;
+}
+.logo {
+    padding-top:10px;
+    width:100%;
+    line-height: .95;
+    text-align:center;
+    color: lightskyblue;
+    font-weight:500;
+    font-size:13px;
+}
+.sidebar {
+    padding-bottom: 10px;
+}
+.sidebar-form input:focus {
+    border-color: transparent;
+}
+
+.main {
+    margin: 0px 10px 0px 160px;
+    height: 100%;
+}
+
+.container {
+    margin: 0px 20px 10px 0px;
+    width: 100%;
+}
+.container > a {
+    color: black;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.user-panel {
+    width: 100%;
+    padding-top: 20px;
+    text-align:center;   
+}
+.user-panel:before,
+.user-panel:after {
+    content: " ";
+    display: table;
+}
+.user-panel:after {
+    clear: both;
+    padding-bottom: 50px;
+}
+.user-panel > .image > img {
+    width: 75%;
+    max-width: 50px;
+    text-align: center;
+    height: auto;
+}
+.user-panel > .info {
+    padding-top:10px;
+    width:100%;
+    text-align: center;
+    line-height: 1;
+    position: absolute;
+}
+.user-panel > .info > p {
+    color: #818181;
+    font-weight: 600;
+    font-size: 12px;
+}
+.user-panel > .info > a {
+  text-decoration: none;
+  font-size: 10px;
+}
+.user-panel > .info > a > .fa,
+.user-panel > .info > a > .ion,
+.user-panel > .info > a > .glyphicon {
+}
+
+.card {
+    border:2px solid white;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+.card-body > input {
+    border:0px;
+    margin:5px;
+    padding:3px;
+    background-color: whitesmoke;
+}
+.card-title {
+    font-size:14px;
+    font-weight: 700;
+    color:black;
+    text-align: left;
+    margin:4px; 
+}
+.card-title >  a {
+    font-family: serif;
+    font-size:10px;
+    font-weight: 700;
+    color:black;
+    text-align: left;
+    margin:4px; 
+}
+.card-text  {
+    font-family: sans-serif;
+    font-size:12px;
+    font-weight: 200;
+    font-weight: 700;
+    color:black;
+    text-align: left;
+    margin:4px; 
+}
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+hr {
+    color:blue;
+}
+textarea {   
+    background-color: whitesmoke;
+    font-family: courier;
+    border:0px;
+    width:100%;
+    margin:5px;
+    padding:3px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: blue;
+}
+
+input, select, textarea{
+    background-color: whitesmoke;
+    font-family: courier;
+    font-size: 12px;
+    font-weight:500;
+    border:0px;
+    margin:5px;
+    padding:3px;
+    color: black;
+}
+
+textarea:focus, input:focus {
+    color: blue;
+    font-weight:700;
+}
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: whitesmoke;
+    color: black;
+    font-weight:700;
+    cursor: pointer;
+    padding: 8px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.main a {
+    color:black;
+}
+.container a {
+    color:black;
+}
+.active, .collapsible:hover {
+  background-color: transparent;
+}
+/* Style the collapsible content. Note: hidden by default */
+.content {
+    padding: 0 6px;
+    display: none;
+    overflow: hidden;
+    
+    font-size:14px;
+    color:black;
+    text-align: left;
+    margin-left: 5px; 
+}
+.content a {
+    font-family:courier;
+    margin-left: 10px;
+}
+.content > a:hover {
+    background-color: lightgray;
+    color:blue;
+    text-decoration: none;
+    
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+

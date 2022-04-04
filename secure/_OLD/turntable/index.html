@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>SoundManager 2: Turntable UI</title>
+<script type="text/javascript" src="soundmanager2.js"></script>
+<script src="turntable.js"></script>
+<script src="turntable-app.js"></script>
+<link rel="stylesheet" href="turntable.css" />
+</head>
+
+<body>
+
+<style>
+    html{zoom:65%;}
+
+body {
+ font-family: helvetica, arial, verdana, sans-serif;
+ font-size: 1rem;
+ font-weight: lighter;
+ color: #fff;
+ background: #393939;
+ -moz-osx-font-smoothing: grayscale;
+ -webkit-font-smoothing: antialiased;
+ /* general font niceness? */
+ font-smoothing: antialiased;
+ text-rendering: optimizeLegibility;
+ color: #ccc;
+}
+
+h1,
+h2 {
+ font-family: "Helvetica Neue", helvetica, arial, verdana, sans-serif;
+ font-weight: 100;
+}
+
+.turntable .frame {
+ background-color: #333;
+ background-image: url(textured_paper.png);
+ /* scale for retina, etc. */
+ background-size: 250px 250px;
+ /* classic champagne-ish color? */
+ /* background: #abacac; */
+}
+
+div.about {
+ position: relative;
+ z-index: 2;
+ margin: 0px 0px -4% 5%;
+ color: #fff;
+}
+
+div.about h1 {
+ font-size: 3.275em;
+ margin: 0px 0px 0.1em 0px;
+}
+
+div.about h2 {
+ font-size: 2.5em;
+ margin: 0.75em 0px 0.2em 0px;
+}
+
+div.about a {
+ text-decoration: none;
+ color: #fff;
+}
+
+div.about p {
+ line-height: 1.5em;
+ margin: 0px 0px 0.25em 0px;
+}
+
+div.about p:last-of-type {
+ margin-bottom: 2em;
+}
+
+b {
+ font-weight: 500;
+}
+
+code {
+ font-family: "lucida console", "courier new", monaco, monospace;
+ font-size: 1em;
+ color: #99ff99;
+}
+
+div a {
+ color: #99ccff;
+}
+
+div a:hover {
+ background-color: #000;
+ color: #fff;
+ outline: 1px solid rgba(255,255,255,0.1);
+}
+
+</style>
+
+  <!-- start turntable: centered and scales up to a predetermined max-width (based on image size) -->
+
+  <div style="position:relative;text-align:center;margin-top:-3%">
+
+    <!-- note: inline-block is just for centering -->
+
+    <div id="turntable-large" class="turntable has-slipmat" style="display:inline-block">
+
+       <div class="frame"></div>
+
+       <div class="table-bg"></div>
+
+       <!-- image that sets the base dimensions-->
+       <img src="tt_case_and_lighting.png" alt="" class="stub" />
+
+       <div class="bd">
+
+        <div class="platter"></div>
+        
+        <div class="slipmat-holder">
+         <div class="slipmat"></div>
+        </div>
+
+        <div class="record-holder">
+         <div class="record"></div>
+         <div class="record-grooves"></div>
+         <div class="label"></div>
+        </div>
+
+        <div class="spindle"></div>
+        <div class="power-light"></div>
+        <a href="#" class="power-dial" data-method="powerToggle"></a>
+        <a href="#" class="button start-stop" data-method="toggle"></a>
+        <a href="#" class="button speed-33 on"></a>
+        <a href="#" class="button speed-45"></a>
+        <div class="light light-on"></div>
+        <a href="#" class="button light"></a>
+        <div class="tonearm-holder">
+         <div class="tonearm"></div>
+        </div>
+       </div>
+
+    </div>
+
+  </div>
+
+    <div style="text-align:center;">
+        <a href="http://blogfiles.wfmu.org/DP/2007/10/284_01_Chet_Bolins_-_All_American_Masher.mp3" data-turntable="turntable-large" 
+           data-artwork="http://intranet.arrayetea.com/secure/wallys/f3.jpg">Chet Bolins - All American Masher</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,564 @@
+/* LIBRARY */
+
+/*.col-md-2 {
+    z-index: 9;
+    transition: 1s;
+    padding: 0px 20px;
+    position: relative;
+    display: block;
+    right:auto;
+    top:0px;
+    transform-origin: top left;
+    transition: 0.7s;
+}
+*/
+.col-md-2.centering:not:hover {
+    transform: scale(1.1);
+    transition: all 0.5s;
+    z-index: 10;
+    position: relative;
+    top: 0;
+    right:0;
+}
+
+.book {
+    padding: 30px 0 0 0;
+    margin: auto;
+    z-index: 99
+}
+
+.bk-list:before { /* Just to give a little puddle of a shadow without adding another element */
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1em;
+    background: rgba(0, 0, 0, .35);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -10px;
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    z-index: 5;
+}
+
+/* .shelf {
+    border-bottom: 30px solid transparent;
+    border-left: 20px solid #f9efdf;
+    border-right: 20px solid #f9efdf;
+    background: url(../img/lib_n2.jpg);
+    top: -15px;
+    z-index: 1;
+}
+*/
+
+
+/*Example adding pseudo element to give shelf depth*/
+/*.shelf:after {
+    content: '';
+    background: url(../dist/img/lib_n1.jpg) repeat-x;
+    height: 20px;
+    width: calc(100% + 40px); /*IE9+*/
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    margin: 0 -20px;
+    box-shadow: 0px 3px 10px #8e8a8a;
+}
+*/
+/*onclick event*/
+.library{
+    position: relative;
+    top:0;
+}
+.overally {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    right:0;
+    top: 0;
+    opacity: 0.6;
+    display: none;
+    z-index: 999;
+    transition: all 1s;
+}
+
+.centering {
+    position: absolute !important;
+    display: block;
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%, -10%);
+    z-index: 9999;
+    transition: all 1s;
+}
+
+.centering .bk-list li .bk-front, .centering .bk-list li .bk-back, .centering .bk-list li .bk-front > div {
+    width: 100%;
+    height: 450px;
+}
+.centering .bk-list li{
+    width:300px;
+}
+.centering .bk-list li .bk-page,.centering .bk-list,.centering .bk-list li .bk-book{
+    width:100%;
+    height: 450px;
+}
+.centering .bk-list li .bk-right{
+    display: none;
+}
+.centering .bk-list:before{
+    display: none;
+}
+
+/*bokk css*/
+.bk-list {
+	list-style: none;
+	position: relative;
+	padding: 0;
+	margin-top: 30px;
+}
+
+.bk-list li {
+	position: relative;
+	width: 150px;
+	text-align: center;
+	margin: 0px auto 0 !important;
+	-webkit-perspective: 1800px;
+	perspective: 1800px;
+	padding:0;
+}
+
+.bk-list li:last-child {
+	margin-right: 0;
+}
+
+.bk-info {
+	position: relative;
+	margin-top:30px;
+}
+
+.bk-info h3 {
+	padding: 25px 0 10px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	font-size: 26px;
+}
+
+.bk-info h3 span:first-child {
+	font-size: 14px;
+	font-weight: 400;
+	text-transform: uppercase;
+	padding-bottom: 5px;
+	display: block;
+	color: #777;
+}
+
+.bk-info p {
+	line-height: 24px;
+	color: #444;
+	min-height: 160px;
+}
+
+.bk-info button {
+	background: #104056;
+	border: none;
+	color: #fff;
+	display: inline-block;
+	padding: 3px 15px;
+	font-weight: 700;
+	font-size: 14px;
+	text-transform: uppercase;
+	cursor: pointer;
+	margin-right: 4px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.15);
+	font-family: dijfont-reg;
+}
+
+.bk-info button.bk-active,
+.bk-info button:active {
+	box-shadow: 
+		0 1px 0 rgba(255, 255, 255, 0.8), 
+		inset 0 -1px 1px rgba(0,0,0,0.2);
+}
+
+.no-touch .bk-info button:hover,
+.bk-info button.bk-active {
+	background: #555555;
+}
+
+.bk-list li .bk-book {
+	position: relative;
+	width: 100%;
+	height: 225px;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform .5s;
+	transition: transform .5s;
+/*	padding-top: 15px;*/
+}
+
+.bk-list li .bk-book.bk-bookdefault:hover {
+	-webkit-transform: rotate3d(0,1,0,-35deg);
+	transform: rotate3d(0,1,0,-35deg);
+}
+
+.bk-list li .bk-book > div,
+.bk-list li .bk-front > div {
+	display: block;
+	position: absolute;
+}
+
+.bk-list li .bk-front {
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform-origin: 100% -100%;
+	transform-origin: 100% -100%;
+	-webkit-transition: -webkit-transform .5s;
+	transition: transform .5s;
+	-webkit-transform: translate3d(0,0,20px);
+	transform: translate3d(0,0,20px);
+	z-index: 10;
+	transition-delay: 0.5s;
+}
+
+.bk-list li .bk-front > div {
+	z-index: 1;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.bk-list li .bk-page {
+	-webkit-transform: translate3d(0,0,2px);
+	transform: translate3d(0,0,2px);
+	display: none;
+	width: 149px;
+	height: 223px;
+	top: 2px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	z-index: 9;
+	-webkit-box-shadow: 0px 0px 3px 2px rgba(212, 212, 212, 0.25);
+	-moz-box-shadow:0px 0px 3px 2px rgba(212, 212, 212, 0.25);
+	box-shadow: 0px 0px 3px 2px rgba(212, 212, 212, 0.25);
+}
+.bk-page nav{background-color: #fff !important}
+.bk-list li .bk-front,
+.bk-list li .bk-back,
+.bk-list li .bk-front > div {
+	width: 150px;
+	height: 225px;
+	margin-top: 1px;
+}
+
+.bk-list li .bk-left,
+.bk-list li .bk-right {
+	width: 40px;
+	left: -20px;
+}
+
+.bk-list li .bk-top,
+.bk-list li .bk-bottom {
+	width: 150px;
+	height: 40px;
+	top: -15px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.bk-list li .bk-back {
+	-webkit-transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
+	transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
+	box-shadow: -10px 10px 30px rgba(0,0,0,0.3);
+	border-radius: 3px 0 0 3px;
+}
+
+.bk-list li .bk-cover-back {
+	background: url(../../../../images/book/b1.jpg);
+	-webkit-transform: rotate3d(0,1,0,-179deg);
+	transform: rotate3d(0,1,0,-179deg);
+}
+
+.bk-list li .bk-left {
+	height: 228px;
+	top: 1px;
+	-webkit-transform: rotate3d(0,1,0,90deg) translate3d(0,0,151px);
+	-moz-transform: rotate3d(0,1,0,90deg) translate3d(0,0,151px);
+	transform: rotate3d(0,1,0,90deg) translate3d(0,0,151px);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.bk-list li .bk-right {
+	height: 228px;
+	-webkit-transform: rotate3d(0,1,0,-90deg);
+	transform: rotate3d(0,1,0,-90deg);
+}
+
+.bk-list li .bk-top {
+	-webkit-transform: rotate3d(1,0,0,90deg);
+	transform: rotate3d(1,0,0,90deg);
+}
+
+.bk-list li .bk-bottom {
+	-webkit-transform: rotate3d(1,0,0,-90deg) translate3d(0,0,250px);
+	transform: rotate3d(1,0,0,-90deg) translate3d(0,0,250px);
+}
+
+/* Transform classes */
+
+.bk-list li .bk-viewinside .bk-front {
+	-webkit-transform: translate3d(0,0,1px) rotate3d(0,1,0,-218deg);
+	transform: translate3d(0,0,1px) rotate3d(0,1,0,-218deg);
+	/*transition-delay: 0.5s;*/
+}
+
+.bk-list li .bk-viewinside .bk-front > div{
+	background:url(../../../img/book/cov2.jpg);
+	background-size: cover;
+}
+
+.bk-list li .bk-book.bk-viewinside {
+	-webkit-transform: translate3d(0,0,150px) rotate3d(0,1,0,0);
+	transform: translate3d(0,0,150px) rotate3d(0,1,0,0);
+	transform-style: preserve-3d;
+
+}
+
+.bk-list li .bk-book.bk-viewback {
+	-webkit-transform: translate3d(0,0,0px) rotate3d(0,1,0,180deg);
+	transform: translate3d(0,0,0px) rotate3d(0,1,0,180deg);
+}
+
+/* Main colors and content */
+
+.bk-list li .bk-page,
+.bk-list li .bk-right,
+.bk-list li .bk-top,
+.bk-list li .bk-bottom {
+	background-color: #fff;
+}
+
+.bk-list li .bk-front > div {
+	border-radius: 3px 0 0 3px;
+	box-shadow: 
+		inset -4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bk-list li .bk-front:after {
+	content: '';
+	position: absolute;
+	top: 1px;
+	bottom: 1px;
+	right: -1px;
+	width: 1px;
+}
+
+.bk-list li .bk-cover:after,
+.bk-list li .bk-back:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 10px;
+	bottom: 0;
+	width: 3px;
+	background: rgba(0,0,0,0.06);
+	box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.bk-list li .bk-back:after {
+	right: auto;
+	left: 10px;
+}
+
+.bk-left h2 {
+	width: 400px;
+	height: 40px;
+	-webkit-transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transform: rotate(90deg) translateY(-40px);
+	transform: rotate(90deg) translateY(-40px);
+}
+
+.bk-content {
+	position: absolute;
+	top: 30px;
+	left: 20px;
+	bottom: 20px;
+	right: 20px;
+	padding: 15px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background: #fff;
+	opacity: 0;
+	pointer-events: none;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
+	cursor: default;
+
+}
+
+.bk-content-current {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.bk-content p {
+	padding: 0 0 10px;
+	-webkit-font-smoothing: antialiased;
+	color: #000;
+	font-size: 13px;
+	line-height: 20px;
+	text-align: justify;
+	direction: rtl;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.bk-page nav {
+	display: block;
+	text-align: center;
+	margin-top: 20px;
+	position: relative;
+	z-index: 100;
+	cursor: pointer;
+}
+
+.bk-page nav span {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	color: #aaa;
+	background: #f0f0f0;
+	border-radius: 50%;
+}
+
+/* Individual style & artwork */
+
+/* Book 1 */
+.book-1 .bk-front:after,
+.book-1 .bk-front > div{
+	background:url(../img/refs/csrm_hackerusa.png);
+	background-size: cover;
+	display: block;
+	
+}
+.book-1 .bk-left{
+	background: url(../img/refs/pages.png);
+	background-size:cover;
+}
+.book-1 .bk-cover h2 {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding: 30px;
+	background: rgba(255,255,255,0.2);
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+/* Book 2 */
+
+.book-2 .bk-front:after,
+.book-2 .bk-front > div{
+	background:url(../img/refs/CyberRiskOversight_DirectorsHandbook_pdf__SECURED_.png);
+	background-size: cover;
+	display: block;
+	width:100% !important;
+}
+
+.book-2 .bk-left{
+	background: url(../img/refs/pages.png);
+	background-size:cover;
+}
+
+.book-2 .bk-cover h2 {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding: 30px;
+	background: rgba(255,255,255,0.2);
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+
+/* Book 3 */
+
+.book-3 .bk-front:after,
+.book-3 .bk-front > div{
+	background:url(../img/refs/nist/800-37.png);
+	background-size: cover;
+	display: block;
+	
+}
+
+.book-3 .bk-left{
+	background: url(../img/refs/pages.png);
+	background-size:cover;
+}
+
+.book-3 .bk-cover h2 {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding: 30px;
+	background: rgba(255,255,255,0.2);
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+
+/*book4*/
+.book-4 .bk-front:after,
+.book-4 .bk-front > div{
+	background:url(http://placehold.it/150x190/ccc/fff&text=Book%20Title);
+	background-size: cover;
+	display: block;
+	
+}
+
+.book-4 .bk-left{
+	background: url(../img/refs/pages.png);
+	background-size:cover;
+}
+.book-4 .bk-cover h2 {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding: 30px;
+	background: rgba(255,255,255,0.2);
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+/* Fallbacks */
+/*
+.no-csstransforms3d .bk-list li .bk-book > div,
+.no-csstransforms3d .bk-list li .bk-book .bk-cover-back {
+	display: none;
+}
+
+.no-csstransforms3d .bk-list li .bk-book > div.bk-front {
+	display: block;
+}
+
+.no-csstransforms3d .bk-info button,
+.no-js .bk-info button {
+	display: none;
+}
+

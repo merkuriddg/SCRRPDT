@@ -1,0 +1,27 @@
+<?php 
+if ($_SESSION['first_login'] == '1') {}
+else {
+$result = mysqli_query($con, 
+"CALL set_first_login('" .$_SESSION['memberID'] . "')")
+  or 
+  die("First_login failed: " . mysqli_error($con));
+      ?>
+                <div class="box">
+                    <div style="background-color:black;font-family: monospace">
+                    <div class="terminal" style="background-color:black;color:#45D40C;font-family: monospace;line-height:1.2em;"></div>
+                    <script src="src/typewriting.js" type="application/javascript"></script>
+                    <script type="application/javascript">
+                    var typeWriting = new TypeWriting({
+                        targetElement   : document.getElementsByClassName('terminal')[0],
+                        inputString     : '       This is the Profile page. You will need to enter a lot of information here so that we can become familiar with each other.<br><br>Please get started by reviewing the Onboarding Checklist on the right and completing the appropriate forms. <br><br>You will not see this information again. So, <a href="profile.php">Click here</a> to get started'
+                    }, function() {
+                        console.log("END");
+                    });
+                    </script>
+                    </div>
+                </div>
+<?php 
+$_SESSION['first_login'] = '1';
+    $con->next_result();
+}
+      ?>

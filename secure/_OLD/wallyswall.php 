@@ -1,0 +1,583 @@
+<?php
+require_once('../includes/config.php');
+include('logged_in.php');
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Arr Aye Tea Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../dist/css/newsfeed.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="../bower_components/morris.js/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="../bower_components/jvectormap/jquery-jvectormap.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="../bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+    <!-- FavIcon -->
+    <link rel="shortcut icon" href="../favicon.ico" />
+
+    <!-- Clock Code -->
+    <script src="../js/clock.js"></script>
+
+    <!-- Login System: https://daveismyname.blog/login-and-registration-system-with-php -->
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    </head>
+    
+<body class="hold-transition skin-blue sidebar-mini" onload="startTime()">
+<!-- Set Date: -->
+<?php include('set_date.php'); ?>
+                                                    
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <?php include('top_logo.php'); ?>
+
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+        
+        
+      <div class="navbar-custom-menu">
+          <!-- Messages: style can be found in dropdown.less-->
+        <ul class="nav navbar-nav">
+
+            <!-- top menu: includes all sub menus - style can be found in dropdown.less -->
+            <?php include('top_menu.php'); ?>            
+
+          <!-- Control Sidebar Toggle Button -->
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="../dist/img/men/rick.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Rick Arraye</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+
+          
+        <!-- Left Sidebar: style can be found in sidebar.less-->
+        <?php include('left_menu.php'); ?>
+
+        <!-- Tempmenu Sidebar: style can be found in sidebar.less-->
+        <?php include('temp_menu.php'); ?>
+        </ul>
+
+  </section>
+    <!-- /.sidebar -->
+  </aside>
+  
+  
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Modals
+        <small>new</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">UI</a></li>
+        <li class="active">Modals</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="callout callout-info">
+        <h4>Reminder!</h4>
+        Instructions for how to use modals are available on the
+        <a href="http://getbootstrap.com/javascript/#modals">Bootstrap documentation</a>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Modal Examples</h3>
+            </div>
+            <div class="box-body">
+              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                Launch Default Modal
+              </button>
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-info">
+                Launch Info Modal
+              </button>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
+                Launch Danger Modal
+              </button>
+              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-warning">
+                Launch Warning Modal
+              </button>
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
+                Launch Success Modal
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="modal fade" id="modal-default">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Default Modal</h4>
+              </div>
+              <div class="modal-body">
+                <p>One fine body&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="modal modal-primary fade" id="modal-primary">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Primary Modal</h4>
+              </div>
+              <div class="modal-body">
+                <p>One fine body&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline">Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="modal modal-info fade" id="modal-info">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Info Modal</h4>
+              </div>
+              <div class="modal-body">
+                <p>One fine body&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline">Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="modal modal-warning fade" id="modal-warning">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Warning Modal</h4>
+              </div>
+              <div class="modal-body">
+                <p>One fine body&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline">Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="modal modal-success fade" id="modal-success">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Success Modal</h4>
+              </div>
+              <div class="modal-body">
+                <p>One fine body&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline">Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="modal modal-danger fade" id="modal-danger">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Danger Modal</h4>
+              </div>
+              <div class="modal-body">
+                <p>One fine body&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline">Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+
+<?php
+require_once('../includes/config.php');
+include('logged_in.php');
+?>
+
+<html>
+<head>
+<title>Java Wallys Crypto Wall</title>
+</head>
+<body bgcolor="#a90909">
+<table width="70%" cellspacing="0" cellpadding="0" align="center"> 
+<!-- Headers-->
+    <tr>
+    <td>A</td>
+    <td>B</td>
+    <td>C</td>
+    <td>D</td>
+    <td>E</td>
+    <td>F</td>
+    <td>G</td>
+    <td>H</td>
+    <td>I</td>
+    <td>J</td>
+    <td>K</td>
+    <td>L</td>
+    <td>M</td>
+    <td>N</td>
+    <td>O</td>
+    <td>P</td>
+    <td>Q</td>
+    <td>R</td>
+    <td>S</td>
+    <td>T</td>
+    <td>U</td>
+    <td>V</td>
+    <td>W</td>
+    <td>X</td>
+    <td>Y</td>
+    <td>Z</td>
+
+</tr>    <!-- Row 1-->
+    <tr>
+    <td><a href="wallys/a1.jpg" target="_blank"><img src="wallys/a1.jpg" height="50"></a></td>
+    <td><a href="wallys/b1.jpg" target="_blank"><img src="wallys/b1.jpg" height="50"></a></td>
+    <td><a href="wallys/c1.jpg" target="_blank"><img src="wallys/c1.jpg" height="50"></a></td>
+    <td><a href="wallys/d1.jpg" target="_blank"><img src="wallys/d1.jpg" height="50"></a></td>
+    <td><a href="wallys/e1.jpg" target="_blank"><img src="wallys/e1.jpg" height="50"></a></td>
+    <td><a href="wallys/f1.jpg" target="_blank"><img src="wallys/f1.jpg" height="50"></a></td>
+    <td><a href="wallys/g1.jpg" target="_blank"><img src="wallys/g1.jpg" height="50"></a></td>
+    <td><a href="wallys/h1.jpg" target="_blank"><img src="wallys/h1.jpg" height="50"></a></td>
+    <td><a href="wallys/i1.jpg" target="_blank"><img src="wallys/i1.jpg" height="50"></a></td>
+    <td><a href="wallys/j1.jpg" target="_blank"><img src="wallys/j1.jpg" height="50"></a></td>
+    <td><a href="wallys/k1.jpg" target="_blank"><img src="wallys/k1.jpg" height="50"></a></td>
+    <td><a href="wallys/l1.jpg" target="_blank"><img src="wallys/l1.jpg" height="50"></a></td>
+    <td><a href="wallys/m1.jpg" target="_blank"><img src="wallys/m1.jpg" height="50"></a></td>
+    <td><a href="wallys/n1.jpg" target="_blank"><img src="wallys/n1.jpg" height="50"></a></td>
+    <td><a href="wallys/o1.jpg" target="_blank"><img src="wallys/o1.jpg" height="50"></a></td>
+    <td><a href="wallys/p1.jpg" target="_blank"><img src="wallys/p1.jpg" height="50"></a></td>
+    <td><a href="wallys/q1.jpg" target="_blank"><img src="wallys/q1.jpg" height="50"></a></td>
+    <td><a href="wallys/r1.jpg" target="_blank"><img src="wallys/r1.jpg" height="50"></a></td>
+    <td><a href="wallys/s1.jpg" target="_blank"><img src="wallys/s1.jpg" height="50"></a></td>
+    <td><a href="wallys/t1.jpg" target="_blank"><img src="wallys/t1.jpg" height="50"></a></td>
+    <td><a href="wallys/u1.jpg" target="_blank"><img src="wallys/u1.jpg" height="50"></a></td>
+    <td><a href="wallys/v1.jpg" target="_blank"><img src="wallys/v1.jpg" height="50"></a></td>
+    <td><a href="wallys/w1.jpg" target="_blank"><img src="wallys/w1.jpg" height="50"></a></td>
+    <td><a href="wallys/x1.jpg" target="_blank"><img src="wallys/x1.jpg" height="50"></a></td>
+    <td><a href="wallys/y1.jpg" target="_blank"><img src="wallys/y1.jpg" height="50"></a></td>
+    <td><a href="wallys/z1.jpg" target="_blank"><img src="wallys/z1.jpg" height="50"></a></td>
+</tr>
+<!-- Row 2-->
+    <tr>
+    <td><a href="wallys/a2.jpg" target="_blank"><img src="wallys/a2.jpg" height="50"></a></td>
+    <td><a href="wallys/b2.jpg" target="_blank"><img src="wallys/b2.jpg" height="50"></a></td>
+    <td><a href="wallys/c2.jpg" target="_blank"><img src="wallys/c2.jpg" height="50"></a></td>
+    <td><a href="wallys/d2.jpg" target="_blank"><img src="wallys/d2.jpg" height="50"></a></td>
+    <td><a href="wallys/e2.jpg" target="_blank"><img src="wallys/e2.jpg" height="50"></a></td>
+    <td><a href="wallys/f2.jpg" target="_blank"><img src="wallys/f2.jpg" height="50"></a></td>
+    <td><a href="wallys/g2.jpg" target="_blank"><img src="wallys/g2.jpg" height="50"></a></td>
+    <td><a href="wallys/h2.jpg" target="_blank"><img src="wallys/h2.jpg" height="50"></a></td>
+    <td><a href="wallys/i2.jpg" target="_blank"><img src="wallys/i2.jpg" height="50"></a></td>
+    <td><a href="wallys/j2.jpg" target="_blank"><img src="wallys/j2.jpg" height="50"></a></td>
+    <td><a href="wallys/k2.jpg" target="_blank"><img src="wallys/k2.jpg" height="50"></a></td>
+    <td><a href="wallys/l2.jpg" target="_blank"><img src="wallys/l2.jpg" height="50"></a></td>
+    <td><a href="wallys/m2.jpg" target="_blank"><img src="wallys/m2.jpg" height="50"></a></td>
+    <td><a href="wallys/n2.jpg" target="_blank"><img src="wallys/n2.jpg" height="50"></a></td>
+    <td><a href="wallys/o2.jpg" target="_blank"><img src="wallys/o2.jpg" height="50"></a></td>
+    <td><a href="wallys/p2.jpg" target="_blank"><img src="wallys/p2.jpg" height="50"></a></td>
+    <td><a href="wallys/q2.jpg" target="_blank"><img src="wallys/q2.jpg" height="50"></a></td>
+    <td><a href="wallys/r2.jpg" target="_blank"><img src="wallys/r2.jpg" height="50"></a></td>
+    <td><a href="wallys/s2.jpg" target="_blank"><img src="wallys/s2.jpg" height="50"></a></td>
+    <td><a href="wallys/t2.jpg" target="_blank"><img src="wallys/t2.jpg" height="50"></a></td>
+    <td><a href="wallys/u2.jpg" target="_blank"><img src="wallys/u2.jpg" height="50"></a></td>
+    <td><a href="wallys/v2.jpg" target="_blank"><img src="wallys/v2.jpg" height="50"></a></td>
+    <td><a href="wallys/w2.jpg" target="_blank"><img src="wallys/w2.jpg" height="50"></a></td>
+    <td><a href="wallys/x2.jpg" target="_blank"><img src="wallys/x2.jpg" height="50"></a></td>
+    <td><a href="wallys/y2.jpg" target="_blank"><img src="wallys/y2.jpg" height="50"></a></td>
+    <td><a href="wallys/z2.jpg" target="_blank"><img src="wallys/z2.jpg" height="50"></a></td>
+</tr>
+<!-- Row 3-->
+    <tr>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/a3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/b3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/c3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/d3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/e3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/f3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/g3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/h3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/i3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/j3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/k3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/l3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/m3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/n3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/o3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/p3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/q3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/r3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/s3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/t3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/u3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/v3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/w3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/x3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/y3.jpg" height="50"></a></td>
+    <td><a href="wallys/3.jpg" target="_blank"><img src="wallys/z3.jpg" height="50"></a></td>
+</tr>    
+<!-- Row 4-->
+    <tr>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/a4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/b4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/c4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/d4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/e4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/f4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/g4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/h4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/i4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/j4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/k4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/l4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/m4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/n4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/o4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/p4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/q4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/r4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/s4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/t4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/u4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/v4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/w4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/x4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/y4.jpg" height="50"></a></td>
+    <td><a href="wallys/4.jpg" target="_blank"><img src="wallys/z4.jpg" height="50"></a></td>
+</tr>    
+<!-- Row 5-->
+    <tr>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/a5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/b5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/c5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/d5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/e5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/f5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/g5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/h5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/i5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/j5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/k5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/l5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/m5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/n5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/o5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/p5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/q5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/r5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/s5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/t5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/u5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/v5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/w5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/x5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/y5.jpg" height="50"></a></td>
+    <td><a href="wallys/5.jpg" target="_blank"><img src="wallys/z5.jpg" height="50"></a></td>
+</tr> 
+<!-- Row 6-->
+    <tr>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/a6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/b6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/c6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/d6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/e6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/f6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/g6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/h6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/i6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/j6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/k6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/l6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/m6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/n6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/o6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/p6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/q6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/r6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/s6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/t6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/u6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/v6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/w6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/x6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/y6.jpg" height="50"></a></td>
+    <td><a href="wallys/6.jpg" target="_blank"><img src="wallys/z6.jpg" height="50"></a></td>
+</tr>    
+<!-- Row 7-->
+    <tr>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/a7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/b7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/c7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/d7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/e7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/f7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/g7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/h7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/i7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/j7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/k7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/l7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/m7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/n7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/o7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/p7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/q7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/r7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/s7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/t7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/u7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/v7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/w7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/x7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/y7.jpg" height="50"></a></td>
+    <td><a href="wallys/7.jpg" target="_blank"><img src="wallys/z7.jpg" height="50"></a></td>
+</tr>
+    </table>
+    
+</body>
+</html>
+
+<!-- /.content-wrapper -->
+  
+<!-- main-footer -->
+<?php include('main_footer.php'); ?>
+
+<!-- Control Sidebar -->
+<?php include('right_nav.php'); ?>
+<!-- /.control-sidebar -->
+  
+<!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+<div class="control-sidebar-bg"></div>
+
+</div>
+
+<!-- jQuery 3 -->
+<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+</body>
+</html>

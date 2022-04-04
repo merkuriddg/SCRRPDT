@@ -1,0 +1,1 @@
+<footer class="main-footer pull-right" style="background-color:transparent;"><small>Version 1.1.0, &copy; <?php echo date("Y"); ?></small></footer>

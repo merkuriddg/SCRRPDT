@@ -1,0 +1,61 @@
+Options -Indexes
+<IfModule mod_expires.c>
+ ExpiresActive on
+ ExpiresDefault "access plus 1 month"
+ ExpiresByType application/javascript "access plus 1 year"
+ ExpiresByType image/x-ico "access plus 1 year"
+ ExpiresByType image/jpg "access plus 14 days"
+ ExpiresByType image/jpeg "access plus 14 days"
+ ExpiresByType image/gif "access plus 14 days"
+ ExpiresByType image/png "access plus 14 days"
+ ExpiresByType text/css "access plus 14 days"
+</IfModule>
+
+#Alternate default index pages
+DirectoryIndex index.htm index.html index.php
+
+AddType application/x-httpd-php .html .htm
+AddHandler application/x-httpd-php .html .htm
+
+RewriteEngine On 
+RewriteCond %{SERVER_PORT} 80 
+# RewriteRule ^(.*)$ https://www.merkuriddg.com/$1 [R,L]
+
+# File modified on Thu Dec  6 08:36:34 2018 by server
+# For security reasons, mod_php is not used on this server. Use a php.ini file for php directives
+# php_flag display_errors 1
+
+# Begin cache control #
+ExpiresActive on
+ExpiresActive off
+# Use PHP5.6 Single php.ini as default
+
+# Start cache control #
+
+    # Set up caching on media files for 2 hours
+    <FilesMatch "\.(gif|jpg|jpeg|png|swf)$">
+    ExpiresDefault A7200
+    Header append Cache-Control "public"
+    </FilesMatch>
+
+    # Force no caching for dynamic files
+    <FilesMatch "\.(php|cgi|pl|htm)$">
+    ExpiresActive Off
+    Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
+    FileETag None
+    Header set Pragma "no-cache"
+    </FilesMatch>
+# End cache control #
+
+# Start directory and file access control #
+<FilesMatch "^php5?\.(ini|cgi)$">
+Order Deny,Allow 
+Deny from All 
+Allow from env=REDIRECT_STATUS 
+</FilesMatch>
+
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+    

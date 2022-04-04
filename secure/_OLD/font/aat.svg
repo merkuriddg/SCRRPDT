@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2018 by original authors @ fontello.com</metadata>
+<defs>
+<font id="aat" horiz-adv-x="1000" >
+<font-face font-family="aat" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="skwalk" unicode="&#xe800;" d="M293-73l-286 30 410 278-417 130 184 62-83 72 197-32 297 90 127 215c0 0 45 70 133 30 0 0 125 75 145 37 0 0-63-13-104-98l89-9-86-28c0 0 0-27-54-50l-41-207c0 0 30-32 10-130-20-98-118-105-118-105l-75-108 5-102 116-2-71-20 63-25-94 19 44-64-80 70-51 19 46 3c0 0-4 43-8 95s2 71 2 71-45-30-53-94-17-89-4-127l109-30-98 10 63-80-91 77-49-64 27 72-44 33 49-16c0 0 19 89 13 106-14 38-42 169-42 169l-180-297z" horiz-adv-x="1000" />
+
+<glyph glyph-name="blinkedln" unicode="&#xe801;" d="M319 756v-801h-246v801h246z m322-214l-3-54c16 22 37 38 61 49 24 11 52 16 84 16 40 0 73-7 97-22 26-14 42-32 49-54 7-22 11-59 11-110v-412h-231v269c0 41-2 65-5 74s-13 13-29 13c-17 0-27-5-31-15-5-10-7-38-7-82v-260h-230v587h234z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

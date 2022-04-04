@@ -1,0 +1,5 @@
+[09-Jun-2018 13:19:59 America/New_York] PHP Warning:  include(../login/classes/user.php): failed to open stream: No such file or directory in /home2/mislanco/public_html/arrayetea_intranet/includes/config.php on line 33
+[09-Jun-2018 13:19:59 America/New_York] PHP Warning:  include(): Failed opening '../login/classes/user.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/mislanco/public_html/arrayetea_intranet/includes/config.php on line 33
+[09-Jun-2018 13:19:59 America/New_York] PHP Warning:  include(../login/classes/phpmailer/mail.php): failed to open stream: No such file or directory in /home2/mislanco/public_html/arrayetea_intranet/includes/config.php on line 34
+[09-Jun-2018 13:19:59 America/New_York] PHP Warning:  include(): Failed opening '../login/classes/phpmailer/mail.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/mislanco/public_html/arrayetea_intranet/includes/config.php on line 34
+[09-Jun-2018 13:19:59 America/New_York] PHP Fatal error:  Class 'User' not found in /home2/mislanco/public_html/arrayetea_intranet/includes/config.php on line 35
